@@ -18,204 +18,202 @@ text-indent:-9999px;
 overflow:hidden;
 border-radius:18px;
 background:transparent;
--webkit-tap-highlight-color:rgba(7,63,45,.18);
+outline:none;
+-webkit-tap-highlight-color:rgba(7,63,45,.10);
 }
-.hotspot:active{background:rgba(7,63,45,.10)}
-.hotspot:focus-visible{
-outline:3px solid #0b3b2b;
-outline-offset:3px;
-background:rgba(255,255,255,.15)
-}
+.hotspot:focus{outline:none}
+.hotspot:focus-visible{outline:none}
+.hotspot:active{background:rgba(7,63,45,.08)}
 .back-home{position:fixed;right:14px;bottom:14px;z-index:10;background:rgba(255,250,243,.92);color:#0b3b2b;text-decoration:none;border:1px solid #d8c7b4;border-radius:999px;padding:10px 14px;font-size:14px;box-shadow:0 8px 24px rgba(0,0,0,.10);line-height:1}
+
+/* Swipe test layout */
+body{
+  overflow:hidden;
+}
+.guide{
+  max-width:none;
+  width:100vw;
+  height:100dvh;
+  display:flex;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  background:#f7efe5;
+}
+.page{
+  flex:0 0 100vw;
+  width:100vw;
+  height:100dvh;
+  max-width:none;
+  overflow-y:auto;
+  overflow-x:hidden;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+  background:#f7efe5;
+  display:flex;
+  justify-content:center;
+}
+.page img{
+  max-width:820px;
+  width:100%;
+  align-self:flex-start;
+}
+.page .hotspot{
+  max-width:820px;
+}
+.swipe-hint{
+  position:fixed;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:14px;
+  z-index:12;
+  background:rgba(255,250,243,.92);
+  border:1px solid #d8c7b4;
+  color:#0b3b2b;
+  border-radius:999px;
+  padding:9px 14px;
+  font-size:13px;
+  line-height:1;
+  box-shadow:0 8px 24px rgba(0,0,0,.10);
+  pointer-events:none;
+}
+.back-home{
+  bottom:54px;
+}
+@media (min-width:821px){
+  .page img{width:820px}
+}
 </style>
 </head>
 <body>
 <main class="guide">
 
-<section class="page" aria-label="Sitges and surroundings guide page 1">
+<section class="page" id="welcome" aria-label="Sitges and surroundings guide page 1">
 <img src="assets/page-01.png" alt="Sitges and surroundings guide with accommodation location, transportation, local tip and useful information.">
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Illa%20de%20Cuba%2011%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" style="left:10%;top:53.2%;width:32%;height:3.6%;">Google Maps address</a>
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Illa%20de%20Cuba%2011%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" style="left:8.4%;top:81.6%;width:31.6%;height:3.8%;">View on Google Maps</a>
-<a class="hotspot" href="https://www.visitsitges.com" target="_blank" rel="noopener" style="left:11%;top:91.0%;width:17.5%;height:3.8%;">Visit Sitges website</a>
-<a class="hotspot" href="https://www.meetup.com/es-ES/" target="_blank" rel="noopener" style="left:38.2%;top:91.0%;width:19.0%;height:3.8%;">Meetup events</a>
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Barcelona%2C%20Spain" target="_blank" rel="noopener" style="left:74%;top:59.6%;width:10%;height:3.8%;">Barcelona</a>
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Barcelona%2C%20Spain" target="_blank" rel="noopener" style="left:81.5%;top:79.4%;width:10%;height:3.8%;">Barcelona</a>
+
+<!-- Internal navigation from the first page icon row -->
+<a class="hotspot" href="#beaches" aria-label="Go to beaches section" style="left:13.5%;top:41.6%;width:8%;height:3.2%;">Go to beaches section</a>
+<a class="hotspot" href="#see" aria-label="Go to culture and things to see section" style="left:23.2%;top:41.6%;width:8.5%;height:3.2%;">Go to culture and things to see section</a>
+<a class="hotspot" href="#restaurants" aria-label="Go to gastronomy and restaurants section" style="left:33.2%;top:41.6%;width:11%;height:3.2%;">Go to gastronomy and restaurants section</a>
+<a class="hotspot" href="#hiking" aria-label="Go to nature section" style="left:46.2%;top:41.6%;width:8.5%;height:3.2%;">Go to nature section</a>
+<a class="hotspot" href="#events" aria-label="Go to events and international atmosphere section" style="left:55.5%;top:41.6%;width:13.5%;height:4.2%;">Go to events and international atmosphere section</a>
+
+<!-- Page links -->
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Illa%20de%20Cuba%2011%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" aria-label="Open Illa de Cuba 11 in Google Maps" style="left:24%;top:54.2%;width:27%;height:3.4%;">Open Illa de Cuba 11 in Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Illa%20de%20Cuba%2011%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" aria-label="View accommodation on Google Maps" style="left:8.6%;top:81.0%;width:34%;height:4.2%;">View accommodation on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Barcelona%2C%20Spain" target="_blank" rel="noopener" aria-label="Open Barcelona in Google Maps" style="left:74%;top:59.7%;width:11%;height:3.2%;">Open Barcelona in Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Barcelona%2C%20Spain" target="_blank" rel="noopener" aria-label="Open Barcelona in Google Maps" style="left:82%;top:79.2%;width:11%;height:3.2%;">Open Barcelona in Google Maps</a>
+<a class="hotspot" href="https://www.visitsitges.com" target="_blank" rel="noopener" aria-label="Open Visit Sitges" style="left:8%;top:88.6%;width:24%;height:6.2%;">Open Visit Sitges</a>
+<a class="hotspot" href="https://www.meetup.com/es-ES/" target="_blank" rel="noopener" aria-label="Open Meetup events in Sitges" style="left:34%;top:88.6%;width:25%;height:6.2%;">Open Meetup events in Sitges</a>
 </section>
 
-<section class="page" aria-label="Events and culture page 2">
-<img src="assets/page-02.png" alt="Events and culture">
-<a class="hotspot" href="https://www.visitsitges.com/agenda-de-eventos-en-sitges/" target="_blank" rel="noopener" style="left:20%;top:88%;width:20%;height:3.8%;">events</a>
-<a class="hotspot" href="https://www.sitgesanytime.com/es/actualidad/agenda" target="_blank" rel="noopener" style="left:43%;top:88%;width:20%;height:3.8%;">agenda</a>
-<a class="hotspot" href="https://bearsitges.org/bears-sitges-week/" target="_blank" rel="noopener" style="left:66%;top:88%;width:20%;height:3.8%;">bear week</a>
+<section class="page" id="events" aria-label="Events and culture page 2">
+<img src="assets/page-02.png" alt="Events and culture featured events">
+<a class="hotspot" href="https://www.visitsitges.com/agenda-de-eventos-en-sitges/" target="_blank" rel="noopener" aria-label="Open Visit Sitges event calendar" style="left:31%;top:84.8%;width:22%;height:6.8%;">Open Visit Sitges event calendar</a>
+<a class="hotspot" href="https://www.sitgesanytime.com/es/actualidad/agenda" target="_blank" rel="noopener" aria-label="Open Sitges Anytime agenda" style="left:53%;top:84.8%;width:23%;height:6.8%;">Open Sitges Anytime agenda</a>
+<a class="hotspot" href="https://bearsitges.org/bears-sitges-week/" target="_blank" rel="noopener" aria-label="Open Bear Week" style="left:76%;top:84.8%;width:20%;height:6.8%;">Open Bear Week</a>
 </section>
 
 <section class="page" aria-label="Events and culture page 3">
-<img src="assets/page-03.png" alt="Events and culture extended">
-<a class="hotspot" href="https://www.visitsitges.com/event-calendar/" target="_blank" rel="noopener" style="left:18%;top:90%;width:20%;height:3.8%;">calendar</a>
-<a class="hotspot" href="https://www.sitgesanytime.com/en/whats-on/agenda" target="_blank" rel="noopener" style="left:40%;top:90%;width:20%;height:3.8%;">agenda</a>
-<a class="hotspot" href="https://bearsitges.org/bears-sitges-week/" target="_blank" rel="noopener" style="left:62%;top:90%;width:20%;height:3.8%;">bear</a>
+<img src="assets/page-03.png" alt="More events and culture in Sitges">
+<a class="hotspot" href="https://www.visitsitges.com/event-calendar/" target="_blank" rel="noopener" aria-label="Open Visit Sitges event calendar" style="left:9%;top:87.0%;width:26%;height:6.6%;">Open Visit Sitges event calendar</a>
+<a class="hotspot" href="https://www.sitgesanytime.com/en/whats-on/agenda" target="_blank" rel="noopener" aria-label="Open Sitges Anytime whats on now" style="left:35%;top:87.0%;width:28%;height:6.6%;">Open Sitges Anytime whats on now</a>
+<a class="hotspot" href="https://bearsitges.org/bears-sitges-week/" target="_blank" rel="noopener" aria-label="Open Bear Week" style="left:62%;top:87.0%;width:24%;height:6.6%;">Open Bear Week</a>
 </section>
 
-<section class="page" aria-label="What to see in Sitges page 4">
+<section class="page" id="see" aria-label="What to see in Sitges page 4">
 <img src="assets/page-04.png" alt="What to see in Sitges">
-<a class="hotspot" href="https://www.catalunya.com/en/sitges" target="_blank" rel="noopener" style="left:10%;top:93%;width:18%;height:3.8%;">catalunya</a>
-<a class="hotspot" href="https://www.lovesitges.cat/en/sitges" target="_blank" rel="noopener" style="left:30%;top:93%;width:18%;height:3.8%;">lovesitges</a>
-<a class="hotspot" href="https://www.sitgesanytime.com/en/plan-your-trip/sitges-in-1-day" target="_blank" rel="noopener" style="left:50%;top:93%;width:20%;height:3.8%;">sitges anytime</a>
-<a class="hotspot" href="https://www.visitsitges.com/en/" target="_blank" rel="noopener" style="left:73%;top:93%;width:18%;height:3.8%;">visit sitges</a>
+<a class="hotspot" href="https://www.catalunya.com/en/sitges" target="_blank" rel="noopener" aria-label="Open Catalunya tourism Sitges" style="left:8%;top:91.0%;width:21%;height:5.4%;">Open Catalunya tourism Sitges</a>
+<a class="hotspot" href="https://www.lovesitges.cat/en/sitges" target="_blank" rel="noopener" aria-label="Open Love Sitges" style="left:29%;top:91.0%;width:19%;height:5.4%;">Open Love Sitges</a>
+<a class="hotspot" href="https://www.sitgesanytime.com/en/plan-your-trip/sitges-in-1-day" target="_blank" rel="noopener" aria-label="Open Sitges Anytime one day guide" style="left:49%;top:91.0%;width:23%;height:5.4%;">Open Sitges Anytime one day guide</a>
+<a class="hotspot" href="https://www.visitsitges.com/en/" target="_blank" rel="noopener" aria-label="Open Visit Sitges" style="left:73%;top:91.0%;width:20%;height:5.4%;">Open Visit Sitges</a>
 </section>
 
-<section class="page" aria-label="Sitges beaches page 5">
+<section class="page" id="beaches" aria-label="Sitges beaches page 5">
 <img src="assets/page-05.png" alt="Sitges beaches guide">
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Platja%20de%20la%20Ribera%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" style="left:4%;top:47.6%;width:27%;height:3.8%;">Ribera Google Maps</a>
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Platja%20de%20Sant%20Sebastia%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" style="left:35%;top:47.6%;width:27%;height:3.8%;">San Sebastian Google Maps</a>
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Platja%20de%20la%20Fragata%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" style="left:68%;top:47.6%;width:27%;height:3.8%;">Fragata Google Maps</a>
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Cala%20Balmins%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" style="left:28%;top:64.5%;width:19%;height:3.8%;">Cala Balmins Google Maps</a>
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Platja%20del%20Muerto%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" style="left:75%;top:64.5%;width:19%;height:3.8%;">Playa del Muerto Google Maps</a>
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Platja%20de%20Garrofer%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" style="left:76%;top:76.0%;width:18%;height:3.6%;">Playa de Garrofer Google Maps</a>
-<a class="hotspot" href="https://www.sitgesanytime.com/es/explora-platges-i-ports-2" target="_blank" rel="noopener" style="left:30%;top:91.4%;width:20%;height:3.8%;">Sitges Anytime beaches</a>
-<a class="hotspot" href="https://www.visitsitges.com/mejores-playas" target="_blank" rel="noopener" style="left:51%;top:91.4%;width:18%;height:3.8%;">Visit Sitges beaches</a>
-<a class="hotspot" href="https://lovesitges.cat/playas-sitges" target="_blank" rel="noopener" style="left:70%;top:91.4%;width:20%;height:3.8%;">Love Sitges beaches</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Platja%20de%20la%20Ribera%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" aria-label="Ribera beach on Google Maps" style="left:4%;top:47.0%;width:27%;height:3.8%;">Ribera beach on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Platja%20de%20Sant%20Sebastia%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" aria-label="Sant Sebastia beach on Google Maps" style="left:35%;top:47.0%;width:27%;height:3.8%;">Sant Sebastia beach on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Platja%20de%20la%20Fragata%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" aria-label="Fragata beach on Google Maps" style="left:68%;top:47.0%;width:27%;height:3.8%;">Fragata beach on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Cala%20Balmins%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" aria-label="Cala Balmins on Google Maps" style="left:28%;top:64.0%;width:20%;height:3.4%;">Cala Balmins on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Platja%20del%20Muerto%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" aria-label="Playa del Muerto on Google Maps" style="left:75%;top:64.0%;width:20%;height:3.4%;">Playa del Muerto on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Platja%20de%20Garrofer%2C%20Sitges%2C%20Spain" target="_blank" rel="noopener" aria-label="Playa de Garrofer on Google Maps" style="left:76%;top:75.6%;width:19%;height:3.2%;">Playa de Garrofer on Google Maps</a>
+<a class="hotspot" href="https://www.sitgesanytime.com/es/explora-platges-i-ports-2" target="_blank" rel="noopener" aria-label="Open Sitges Anytime beaches" style="left:28%;top:88.8%;width:23%;height:6.2%;">Open Sitges Anytime beaches</a>
+<a class="hotspot" href="https://www.visitsitges.com/mejores-playas" target="_blank" rel="noopener" aria-label="Open Visit Sitges beaches" style="left:50%;top:88.8%;width:20%;height:6.2%;">Open Visit Sitges beaches</a>
+<a class="hotspot" href="https://lovesitges.cat/playas-sitges" target="_blank" rel="noopener" aria-label="Open Love Sitges beaches" style="left:69%;top:88.8%;width:23%;height:6.2%;">Open Love Sitges beaches</a>
 </section>
 
-
-<section class="page" aria-label="Nature and hiking page 6">
+<section class="page" id="hiking" aria-label="Nature and hiking page 6">
 <img src="assets/page-06.png" alt="Nature and hiking routes around Sitges">
-
-<!-- Route Google Maps links -->
-<a class="hotspot" href="https://www.google.com/maps/dir/?api=1&destination=Ermita%20de%20la%20Trinitat%2C%20Sitges%2C%20Spain&travelmode=walking" target="_blank" rel="noopener" style="left:8%;top:47.5%;width:34%;height:3.3%;">Ermitage of La Trinitat route on Google Maps</a>
-
-<a class="hotspot" href="https://www.google.com/maps/dir/?api=1&origin=Sitges%2C%20Spain&destination=Vilanova%20i%20la%20Geltru%2C%20Spain&travelmode=walking" target="_blank" rel="noopener" style="left:57%;top:47.5%;width:34%;height:3.3%;">Coastal path Sitges to Vilanova route on Google Maps</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Sant%20Pere%20de%20Ribes%2C%20Spain" target="_blank" rel="noopener" style="left:27%;top:87.0%;width:18%;height:3.6%;">Sant Pere de Ribes on Google Maps</a>
-
-<!-- Bottom information links -->
-<a class="hotspot" href="https://www.visitsitges.com" target="_blank" rel="noopener" style="left:35%;top:93.1%;width:11%;height:3.8%;">Visit Sitges</a>
-
-<a class="hotspot" href="https://www.sitgesanytime.com/" target="_blank" rel="noopener" style="left:47%;top:93.1%;width:12%;height:3.8%;">Sitges Anytime</a>
-
-<a class="hotspot" href="https://www.sitgesanytime.com/en/things-to-do/hiking" target="_blank" rel="noopener" style="left:59.5%;top:93.1%;width:14%;height:3.8%;">Things to do hiking</a>
-
-<a class="hotspot" href="https://www.visitsitges.com/en/tourism-routes-and-culture" target="_blank" rel="noopener" style="left:74%;top:93.1%;width:15%;height:3.8%;">Tourism routes and culture</a>
+<a class="hotspot" href="https://www.google.com/maps/dir/?api=1&destination=Ermita%20de%20la%20Trinitat%2C%20Sitges%2C%20Spain&travelmode=walking" target="_blank" rel="noopener" aria-label="Ermitage of La Trinitat route on Google Maps" style="left:8%;top:47.2%;width:35%;height:3.8%;">Ermitage of La Trinitat route on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/dir/?api=1&origin=Sitges%2C%20Spain&destination=Vilanova%20i%20la%20Geltru%2C%20Spain&travelmode=walking" target="_blank" rel="noopener" aria-label="Coastal path route on Google Maps" style="left:57%;top:47.2%;width:35%;height:3.8%;">Coastal path route on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Sant%20Pere%20de%20Ribes%2C%20Spain" target="_blank" rel="noopener" aria-label="Sant Pere de Ribes on Google Maps" style="left:27%;top:86.6%;width:20%;height:3.2%;">Sant Pere de Ribes on Google Maps</a>
+<a class="hotspot" href="https://www.visitsitges.com" target="_blank" rel="noopener" aria-label="Open Visit Sitges" style="left:33%;top:91.0%;width:13%;height:5.2%;">Open Visit Sitges</a>
+<a class="hotspot" href="https://www.sitgesanytime.com/" target="_blank" rel="noopener" aria-label="Open Sitges Anytime" style="left:46%;top:91.0%;width:13%;height:5.2%;">Open Sitges Anytime</a>
+<a class="hotspot" href="https://www.sitgesanytime.com/en/things-to-do/hiking" target="_blank" rel="noopener" aria-label="Open hiking information" style="left:59%;top:91.0%;width:15%;height:5.2%;">Open hiking information</a>
+<a class="hotspot" href="https://www.visitsitges.com/en/tourism-routes-and-culture" target="_blank" rel="noopener" aria-label="Open tourism routes and culture" style="left:73%;top:91.0%;width:17%;height:5.2%;">Open tourism routes and culture</a>
 </section>
 
-
-<section class="page">
+<section class="page" aria-label="Experiences in Sitges page 7">
 <img src="assets/page-07.png" alt="Experiences in Sitges">
-
-<!-- Wine tourism -->
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Penedes%20wine%20region%2C%20Spain" target="_blank" style="left:18%;top:40%;width:20%;height:3.8%;">Penedes</a>
-
-<a class="hotspot" href="https://penedesturisme.cat/en/the-wine-route-of-penedes" target="_blank" style="left:20%;top:55%;width:25%;height:3.8%;">Wine route</a>
-
-<!-- Port -->
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Port%20d%27Aiguadolc%2C%20Sitges" target="_blank" style="left:40%;top:45%;width:12%;height:3.8%;">Port</a>
-
-<a class="hotspot" href="https://www.visitsitges.com/port-d-aiguadolc/" target="_blank" style="left:40%;top:60%;width:15%;height:3.8%;">Port info</a>
-
-<!-- Boat rental -->
-<a class="hotspot" href="https://sitgesrentboat.com" target="_blank" style="left:52%;top:60%;width:15%;height:3.8%;">Boat rental</a>
-
-<!-- Jet ski -->
-<a class="hotspot" href="https://www.waterfrontsitges.com/jet-ski" target="_blank" style="left:65%;top:60%;width:15%;height:3.8%;">Jet ski</a>
-
-<!-- Nearby -->
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Barcelona%2C%20Spain" target="_blank" style="left:38%;top:72%;width:10%;height:3.8%;">Barcelona</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Vilanova%20i%20la%20Geltru" target="_blank" style="left:50%;top:72%;width:12%;height:3.8%;">Vilanova</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Castelldefels%2C%20Spain" target="_blank" style="left:62%;top:72%;width:12%;height:3.8%;">Castelldefels</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Garraf%20Natural%20Park" target="_blank" style="left:74%;top:72%;width:14%;height:3.8%;">Garraf</a>
-
-<!-- Useful info -->
-<a class="hotspot" href="https://www.visitsitges.com" target="_blank" style="left:25%;top:92%;width:15%;height:3.8%;">Visit Sitges</a>
-
-<a class="hotspot" href="https://www.meetup.com/es-ES/" target="_blank" style="left:42%;top:92%;width:15%;height:3.8%;">Meetup</a>
-
-<a class="hotspot" href="https://www.visitsitges.com/en/sitges/sitges-experiences" target="_blank" style="left:58%;top:92%;width:20%;height:3.8%;">Experiences</a>
-
-<a class="hotspot" href="https://bookings.portdesitges.com" target="_blank" style="left:78%;top:92%;width:18%;height:3.8%;">Water activities</a>
-
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Penedes%20wine%20region%2C%20Spain" target="_blank" rel="noopener" aria-label="Penedes wine region on Google Maps" style="left:20%;top:30%;width:16%;height:3.0%;">Penedes wine region on Google Maps</a>
+<a class="hotspot" href="https://penedesturisme.cat/en/the-wine-route-of-penedes" target="_blank" rel="noopener" aria-label="Open Penedes wine route" style="left:19%;top:53.5%;width:25%;height:5.0%;">Open Penedes wine route</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Port%20d%27Aiguadolc%2C%20Sitges" target="_blank" rel="noopener" aria-label="Port d'Aiguadolc on Google Maps" style="left:39.5%;top:55.0%;width:13%;height:3.2%;">Port d'Aiguadolc on Google Maps</a>
+<a class="hotspot" href="https://www.visitsitges.com/port-d-aiguadolc/" target="_blank" rel="noopener" aria-label="Open Port d'Aiguadolc information" style="left:39%;top:58.5%;width:16%;height:4.8%;">Open Port d'Aiguadolc information</a>
+<a class="hotspot" href="https://sitgesrentboat.com" target="_blank" rel="noopener" aria-label="Open Sitges Rent Boat" style="left:51%;top:58.5%;width:16%;height:4.8%;">Open Sitges Rent Boat</a>
+<a class="hotspot" href="https://www.waterfrontsitges.com/jet-ski" target="_blank" rel="noopener" aria-label="Open Waterfront Sitges jet ski" style="left:64%;top:58.5%;width:17%;height:4.8%;">Open Waterfront Sitges jet ski</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Barcelona%2C%20Spain" target="_blank" rel="noopener" aria-label="Barcelona on Google Maps" style="left:38%;top:72.5%;width:10%;height:3.0%;">Barcelona on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Vilanova%20i%20la%20Geltru" target="_blank" rel="noopener" aria-label="Vilanova i la Geltru on Google Maps" style="left:50%;top:72.5%;width:12%;height:3.0%;">Vilanova i la Geltru on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Castelldefels%2C%20Spain" target="_blank" rel="noopener" aria-label="Castelldefels on Google Maps" style="left:62%;top:72.5%;width:12%;height:3.0%;">Castelldefels on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Garraf%20Natural%20Park" target="_blank" rel="noopener" aria-label="Garraf Natural Park on Google Maps" style="left:74%;top:72.5%;width:14%;height:3.0%;">Garraf Natural Park on Google Maps</a>
+<a class="hotspot" href="https://www.visitsitges.com" target="_blank" rel="noopener" aria-label="Open Visit Sitges" style="left:20%;top:89.7%;width:19%;height:5.8%;">Open Visit Sitges</a>
+<a class="hotspot" href="https://www.meetup.com/es-ES/" target="_blank" rel="noopener" aria-label="Open Meetup" style="left:40%;top:89.7%;width:19%;height:5.8%;">Open Meetup</a>
+<a class="hotspot" href="https://www.visitsitges.com/en-sitges/sitges-experiences" target="_blank" rel="noopener" aria-label="Open Sitges experiences" style="left:56%;top:89.7%;width:22%;height:5.8%;">Open Sitges experiences</a>
+<a class="hotspot" href="https://bookings.portdesitges.com" target="_blank" rel="noopener" aria-label="Open water activities" style="left:77%;top:89.7%;width:20%;height:5.8%;">Open water activities</a>
 </section>
 
-
-<section class="page">
+<section class="page" aria-label="Supermarkets and useful services page 8">
 <img src="assets/page-08.png" alt="Supermarkets and useful services">
-
-<!-- Supermarkets Google Maps -->
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Mercadona%20Sitges" target="_blank" style="left:10%;top:42%;width:18%;height:3.8%;">Mercadona</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Bonpreu%20Sitges" target="_blank" style="left:30%;top:42%;width:18%;height:3.8%;">Bonpreu</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Condis%20Sitges" target="_blank" style="left:50%;top:42%;width:18%;height:3.8%;">Condis</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Carrefour%20Express%20Sitges" target="_blank" style="left:70%;top:42%;width:18%;height:3.8%;">Carrefour</a>
-
-<!-- Pharmacy -->
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Pharmacy%20Sitges" target="_blank" style="left:10%;top:66%;width:20%;height:3.8%;">Pharmacy</a>
-
-<!-- Info links -->
-<a class="hotspot" href="https://www.sitgesanytime.com/en/things-to-do/hiking" target="_blank" style="left:35%;top:93%;width:20%;height:3.8%;">Sitges Anytime</a>
-
-<a class="hotspot" href="https://www.visitsitges.com/en/tourist-routes-and-culture" target="_blank" style="left:58%;top:93%;width:20%;height:3.8%;">Visit Sitges</a>
-
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Mercadona%20Sitges" target="_blank" rel="noopener" aria-label="Mercadona Sitges on Google Maps" style="left:8%;top:28%;width:16%;height:3.4%;">Mercadona Sitges on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Bonpreu%20Sitges" target="_blank" rel="noopener" aria-label="Bonpreu Sitges on Google Maps" style="left:29%;top:28%;width:16%;height:3.4%;">Bonpreu Sitges on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Condis%20Sitges" target="_blank" rel="noopener" aria-label="Condis Sitges on Google Maps" style="left:50%;top:28%;width:16%;height:3.4%;">Condis Sitges on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Carrefour%20Express%20Sitges" target="_blank" rel="noopener" aria-label="Carrefour Express Sitges on Google Maps" style="left:71%;top:28%;width:18%;height:3.4%;">Carrefour Express Sitges on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Pharmacy%20Sitges" target="_blank" rel="noopener" aria-label="Pharmacies in Sitges on Google Maps" style="left:8%;top:60%;width:22%;height:3.6%;">Pharmacies in Sitges on Google Maps</a>
+<a class="hotspot" href="https://www.sitgesanytime.com/en/things-to-do/hiking" target="_blank" rel="noopener" aria-label="Open Sitges Anytime" style="left:34%;top:90.4%;width:22%;height:5.8%;">Open Sitges Anytime</a>
+<a class="hotspot" href="https://www.visitsitges.com/en/tourist-routes-and-culture" target="_blank" rel="noopener" aria-label="Open Visit Sitges tourist routes" style="left:58%;top:90.4%;width:23%;height:5.8%;">Open Visit Sitges tourist routes</a>
 </section>
 
-
-<section class="page">
-<img src="assets/page-09.png" alt="Restaurants in Sitges">
-
-<!-- Restaurants Google Maps -->
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=La%20Oca%20Sitges" target="_blank" style="left:25%;top:40%;width:20%;height:3.8%;">La Oca</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Merci%20Sitges" target="_blank" style="left:65%;top:40%;width:20%;height:3.8%;">Merci</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=El%20Noi%20de%20Sitges" target="_blank" style="left:25%;top:55%;width:20%;height:3.8%;">El Noi</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Galicia%20Sitges" target="_blank" style="left:65%;top:55%;width:20%;height:3.8%;">Galicia</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=La%20Zorra%20Sitges" target="_blank" style="left:25%;top:70%;width:20%;height:3.8%;">La Zorra</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=La%20Salseta%20Sitges" target="_blank" style="left:65%;top:70%;width:20%;height:3.8%;">La Salseta</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Pinchos%20Kan%20Torrat%20Sitges" target="_blank" style="left:25%;top:85%;width:20%;height:3.8%;">Pinchos</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Izakaya%20Estrella%20Sitges" target="_blank" style="left:65%;top:85%;width:20%;height:3.8%;">Izakaya</a>
-
-<!-- Bottom link -->
-<a class="hotspot" href="https://www.sitgesanytime.com/en/what-to-do/food/" target="_blank" style="left:55%;top:95%;width:30%;height:3.8%;">More restaurants</a>
-
+<section class="page" id="restaurants" aria-label="Restaurants in Sitges page 9">
+<img src="assets/page-09.png" alt="Restaurant recommendations in Sitges">
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=La%20Oca%20Sitges" target="_blank" rel="noopener" aria-label="La Oca Sitges on Google Maps" style="left:24%;top:32%;width:18%;height:3.4%;">La Oca Sitges on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Merci%20Sitges" target="_blank" rel="noopener" aria-label="Merci Sitges on Google Maps" style="left:74%;top:32%;width:15%;height:3.4%;">Merci Sitges on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=El%20Noi%20de%20Sitges" target="_blank" rel="noopener" aria-label="El Noi de Sitges on Google Maps" style="left:24%;top:47%;width:22%;height:3.4%;">El Noi de Sitges on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Galicia%20Sitges" target="_blank" rel="noopener" aria-label="Galicia Sitges on Google Maps" style="left:74%;top:47%;width:15%;height:3.4%;">Galicia Sitges on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=La%20Zorra%20Sitges" target="_blank" rel="noopener" aria-label="La Zorra Sitges on Google Maps" style="left:24%;top:62%;width:18%;height:3.4%;">La Zorra Sitges on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=La%20Salseta%20Sitges" target="_blank" rel="noopener" aria-label="La Salseta Sitges on Google Maps" style="left:74%;top:62%;width:17%;height:3.4%;">La Salseta Sitges on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Pinchos%20Kan%20Torrat%20Sitges" target="_blank" rel="noopener" aria-label="Pinchos Kan Torrat on Google Maps" style="left:24%;top:77%;width:24%;height:3.4%;">Pinchos Kan Torrat on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Izakaya%20Estrella%20Sitges" target="_blank" rel="noopener" aria-label="Izakaya Estrella Sitges on Google Maps" style="left:74%;top:77%;width:20%;height:3.4%;">Izakaya Estrella Sitges on Google Maps</a>
+<a class="hotspot" href="https://www.sitgesanytime.com/en/what-to-do/food/" target="_blank" rel="noopener" aria-label="Open more restaurants in Sitges" style="left:54%;top:92.8%;width:35%;height:5.4%;">Open more restaurants in Sitges</a>
 </section>
 
-
-<section class="page">
+<section class="page" aria-label="Sitges at night page 10">
 <img src="assets/page-10.png" alt="Sitges at night">
-
-<!-- Locations -->
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Calle%20del%20Pecado%2C%20Sitges" target="_blank" style="left:12%;top:55%;width:25%;height:3.8%;">Calle del Pecado</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Sitges%20seafront%20promenade" target="_blank" style="left:45%;top:35%;width:20%;height:3.8%;">Promenade</a>
-
-<!-- Museums -->
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Cau%20Ferrat%20Museum%2C%20Sitges" target="_blank" style="left:25%;top:70%;width:20%;height:3.8%;">Cau Ferrat</a>
-
-<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Maricel%20Museum%2C%20Sitges" target="_blank" style="left:65%;top:70%;width:20%;height:3.8%;">Maricel</a>
-
-<!-- Bottom links -->
-<a class="hotspot" href="https://lovesitges.cat/en/sitges" target="_blank" style="left:35%;top:93%;width:15%;height:3.8%;">Love Sitges</a>
-
-<a class="hotspot" href="https://www.sitgesanytime.com/en/plan-your-trip/sitges-in-1-day" target="_blank" style="left:52%;top:93%;width:20%;height:3.8%;">Sitges Anytime</a>
-
-<a class="hotspot" href="https://www.visitsitges.com/en/" target="_blank" style="left:74%;top:93%;width:18%;height:3.8%;">Visit Sitges</a>
-
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Calle%20del%20Pecado%2C%20Sitges" target="_blank" rel="noopener" aria-label="Calle del Pecado on Google Maps" style="left:5%;top:52.5%;width:24%;height:3.6%;">Calle del Pecado on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Sitges%20seafront%20promenade" target="_blank" rel="noopener" aria-label="Sitges seafront promenade on Google Maps" style="left:38%;top:33.5%;width:25%;height:3.5%;">Sitges seafront promenade on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Cau%20Ferrat%20Museum%2C%20Sitges" target="_blank" rel="noopener" aria-label="Cau Ferrat Museum on Google Maps" style="left:25%;top:68.5%;width:21%;height:3.5%;">Cau Ferrat Museum on Google Maps</a>
+<a class="hotspot" href="https://www.google.com/maps/search/?api=1&query=Maricel%20Museum%2C%20Sitges" target="_blank" rel="noopener" aria-label="Maricel Museum on Google Maps" style="left:73%;top:68.5%;width:20%;height:3.5%;">Maricel Museum on Google Maps</a>
+<a class="hotspot" href="https://lovesitges.cat/en/sitges" target="_blank" rel="noopener" aria-label="Open Love Sitges" style="left:33%;top:90.8%;width:18%;height:5.4%;">Open Love Sitges</a>
+<a class="hotspot" href="https://www.sitgesanytime.com/en/plan-your-trip/sitges-in-1-day" target="_blank" rel="noopener" aria-label="Open Sitges Anytime" style="left:51%;top:90.8%;width:22%;height:5.4%;">Open Sitges Anytime</a>
+<a class="hotspot" href="https://www.visitsitges.com/en/" target="_blank" rel="noopener" aria-label="Open Visit Sitges" style="left:73%;top:90.8%;width:20%;height:5.4%;">Open Visit Sitges</a>
 </section>
 
-
-<section class="page">
+<section class="page" aria-label="Thank you page">
 <img src="assets/page-11.png" alt="Thank you for your stay">
 </section>
 
 </main>
 <a class="back-home" href="../index.html" aria-label="Back to language selection">Languages</a>
+<div class="swipe-hint">Swipe ← → between pages</div>
 </body>
 </html>
