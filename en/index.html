@@ -798,9 +798,122 @@ outline:none;
   .event-card:active,.app-button:active,.app-card:active{transform:scale(.985)}
 }
 
+
+/* v27 separated event link cards */
+@media (max-width:768px) and (orientation:portrait){
+  .event-links-mobile{
+    margin:16px 0 20px;
+  }
+
+  .event-info-card{
+    background:#fffaf3;
+    border:1px solid #d8c7b4;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 10px 24px rgba(0,0,0,.07);
+    margin-bottom:12px;
+  }
+
+  .event-info-card img{
+    width:100%;
+    display:block;
+  }
+
+  .link-card-carousel{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding:2px 2px 12px;
+  }
+
+  .link-image-card{
+    flex:0 0 78%;
+    scroll-snap-align:center;
+    display:block;
+    background:#fffaf3;
+    border:1px solid #d8c7b4;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 10px 24px rgba(0,0,0,.07);
+    text-decoration:none;
+  }
+
+  .link-image-card img{
+    width:100%;
+    display:block;
+  }
+
+  .link-image-card:active{
+    transform:scale(.985);
+  }
+}
+
+
+/* v28 every event image is clickable */
+@media (max-width:768px) and (orientation:portrait){
+  .clickable-image{
+    text-decoration:none;
+    color:inherit;
+  }
+  .mini-link-image{
+    flex:0 0 88%;
+    scroll-snap-align:center;
+    display:block;
+    text-decoration:none;
+  }
+  .mini-link-image img{
+    width:100%;
+    display:block;
+    border-radius:20px;
+    border:1px solid #d8c7b4;
+  }
+  .mini-link-image:active,
+  .clickable-image:active{
+    transform:scale(.985);
+  }
+}
+
+
+/* v29 footer image */
+@media (max-width:768px) and (orientation:portrait){
+  .custom-footer{
+    margin:20px 0 30px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 24px rgba(0,0,0,.08);
+  }
+  .custom-footer img{
+    width:100%;
+    display:block;
+  }
+}
+
+
+/* v30 top header */
+@media (max-width:768px) and (orientation:portrait){
+  .custom-top-header{
+    margin:10px 0 16px;
+    text-align:center;
+  }
+  .custom-top-header img{
+    width:100%;
+    max-width:520px;
+    display:block;
+    margin:0 auto 8px;
+  }
+}
+
 </style>
 </head>
 <body>
+
+<section class="custom-top-header">
+  <img src="assets/top-logo.png" alt="Terrace Retreat">
+  <img src="assets/top-title.png" alt="Sitges Events and Culture">
+</section>
+
 <main class="guide desktop-guide">
 
 <section class="page" id="welcome" aria-label="Sitges and surroundings guide page 1">
@@ -996,30 +1109,44 @@ outline:none;
       </div>
 
       <div class="card-carousel" aria-label="Featured events carousel">
-        <article class="event-card"><img src="assets/event-carnival.jpg" alt="Sitges Carnival"></article>
-        <article class="event-card"><img src="assets/event-corpus.jpg" alt="Corpus Christi Sitges"></article>
-        <article class="event-card"><img src="assets/event-major-festival.jpg" alt="Sitges Major Festival"></article>
-        <article class="event-card"><img src="assets/event-santa-tecla.jpg" alt="Santa Tecla"></article>
+        <a class="event-card clickable-image" href="https://www.google.com/search?q=Sitges+Carnival" target="_blank" rel="noopener"><img src="assets/event-carnival.jpg" alt="Sitges Carnival"></a>
+        <a class="event-card clickable-image" href="https://www.google.com/search?q=Corpus+Christi+Sitges" target="_blank" rel="noopener"><img src="assets/event-corpus.jpg" alt="Corpus Christi Sitges"></a>
+        <a class="event-card clickable-image" href="https://www.google.com/search?q=Sitges+Major+Festival" target="_blank" rel="noopener"><img src="assets/event-major-festival.jpg" alt="Sitges Major Festival"></a>
+        <a class="event-card clickable-image" href="https://www.google.com/search?q=Santa+Tecla+Sitges" target="_blank" rel="noopener"><img src="assets/event-santa-tecla.jpg" alt="Santa Tecla"></a>
       </div>
 
       <article class="app-card">
         <p class="eyebrow">LGBTQ+ events</p>
         <h2>Sitges Pride & Bear Week</h2>
         <div class="mini-carousel">
-          <img src="assets/event-pride.jpg" alt="Sitges Pride">
-          <img src="assets/event-bear-week.jpg" alt="Bear Week">
+          <a class="mini-link-image" href="https://www.google.com/search?q=Sitges+Pride" target="_blank" rel="noopener">
+            <img src="assets/event-pride.jpg" alt="Sitges Pride">
+          </a>
+          <a class="mini-link-image" href="https://bearsitges.org/bears-sitges-week/" target="_blank" rel="noopener">
+            <img src="assets/event-bear-week.jpg" alt="Bear Week">
+          </a>
         </div>
       </article>
 
-      <article class="app-card">
-        <p class="eyebrow">Plan your dates</p>
-        <h2>Useful event links</h2>
-        <div class="button-grid">
-          <a class="app-button" href="https://www.visitsitges.com/agenda-de-eventos-en-sitges/" target="_blank" rel="noopener">Event calendar</a>
-          <a class="app-button secondary" href="https://www.sitgesanytime.com/en/whats-on/agenda" target="_blank" rel="noopener">What’s on now</a>
-          <a class="app-button secondary" href="https://bearsitges.org/bears-sitges-week/" target="_blank" rel="noopener">Bear Week</a>
+      <section class="event-links-mobile">
+        <article class="event-info-card">
+          <img src="assets/event-more-info.png" alt="Want to know more about Sitges events">
+        </article>
+
+        <div class="link-card-carousel" aria-label="Event information links">
+          <a class="link-image-card" href="https://www.visitsitges.com/agenda-de-eventos-en-sitges/" target="_blank" rel="noopener">
+            <img src="assets/event-calendar-card.png" alt="Event calendar">
+          </a>
+
+          <a class="link-image-card" href="https://www.sitgesanytime.com/en/whats-on/agenda" target="_blank" rel="noopener">
+            <img src="assets/event-whats-now-card.png" alt="What's on now">
+          </a>
+
+          <a class="link-image-card" href="https://bearsitges.org/bears-sitges-week/" target="_blank" rel="noopener">
+            <img src="assets/event-bear-week-card.png" alt="Bear Week">
+          </a>
         </div>
-      </article>
+      </section>
     </section>
 
     <section class="chapter" id="chapter-beaches">
@@ -1068,5 +1195,10 @@ outline:none;
 </main>
 
 <a class="back-home" href="../index.html" aria-label="Back to language selection">Languages</a>
+
+<section class="custom-footer">
+  <img src="assets/footer-experience.png" alt="Sitges is not just a place to visit - it's an experience">
+</section>
+
 </body>
 </html>
