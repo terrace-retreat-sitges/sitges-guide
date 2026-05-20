@@ -639,6 +639,31 @@ outline:none;
   box-shadow:0 14px 30px rgba(0,0,0,.12);
 }
 
+
+/* v38: per-month clickable timeline zones */
+.p3-timeline-card.split-card{
+  position:relative;
+  display:block;
+  text-decoration:none;
+}
+
+.timeline-hotspot{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:50%;
+  z-index:3;
+  display:block;
+  -webkit-tap-highlight-color:rgba(7,63,45,.12);
+}
+
+.timeline-hotspot.left{left:0}
+.timeline-hotspot.right{right:0}
+
+.timeline-hotspot:active{
+  background:rgba(7,63,45,.08);
+}
+
 /* v35 Page 3 Netflix-style mobile layout */
 .mobile-page3-netflix{display:none}
 
@@ -959,16 +984,16 @@ outline:none;
   </div>
 
   <div class="p3-row" aria-label="Cultural and highlight events">
-    <a class="p3-card p3-tall" href="https://www.google.com/search?q=Sitges+International+Fantastic+Film+Festival" target="_blank" rel="noopener">
+    <a class="p3-card p3-tall" href="https://sitgesfilmfestival.com/en" target="_blank" rel="noopener">
       <img src="assets/p3-card-film.jpg" alt="Sitges International Fantastic Film Festival">
     </a>
-    <a class="p3-card p3-tall" href="https://www.google.com/search?q=Sitges+International+Patchwork+Festival" target="_blank" rel="noopener">
+    <a class="p3-card p3-tall" href="https://www.sitgesanytime.com/en/calendar/pln330/international-patchwork-festival-sewing-sitges" target="_blank" rel="noopener">
       <img src="assets/p3-card-patchwork.jpg" alt="Sitges International Patchwork Festival">
     </a>
-    <a class="p3-card p3-tall" href="https://www.google.com/search?q=Barcelona+Sitges+International+Rally" target="_blank" rel="noopener">
+    <a class="p3-card p3-tall" href="https://www.sitgesanytime.com/en/explore/festivals-of-interest/pln355/barcelona-sitges-international-vintage-cars-rally" target="_blank" rel="noopener">
       <img src="assets/p3-card-rally.jpg" alt="Barcelona Sitges International Rally">
     </a>
-    <a class="p3-card p3-tall" href="https://www.google.com/search?q=Sitges+gastronomic+events" target="_blank" rel="noopener">
+    <a class="p3-card p3-tall" href="https://www.sitgesanytime.com/en/what-to-do/food/" target="_blank" rel="noopener">
       <img src="assets/p3-card-gastronomy.jpg" alt="Gastronomic events in Sitges">
     </a>
   </div>
@@ -977,16 +1002,16 @@ outline:none;
   </div>
 
   <div class="p3-row" aria-label="Other events of interest">
-    <a class="p3-card p3-medium" href="https://www.google.com/search?q=Sitges+Queer+Fest" target="_blank" rel="noopener">
+    <a class="p3-card p3-medium" href="https://sitgesqueerfest.org/" target="_blank" rel="noopener">
       <img src="assets/p3-card-queer.jpg" alt="Sitges Queer Fest">
     </a>
-    <a class="p3-card p3-medium" href="https://www.google.com/search?q=Festival+Jardins+Terramar+Sitges" target="_blank" rel="noopener">
+    <a class="p3-card p3-medium" href="https://festivalterramarcaixabank.com/en/" target="_blank" rel="noopener">
       <img src="assets/p3-card-terramar.jpg" alt="Jardins Terramar Festival">
     </a>
     <a class="p3-card p3-medium" href="https://www.google.com/search?q=live+music+Sitges" target="_blank" rel="noopener">
       <img src="assets/p3-card-live.jpg" alt="Live music in Sitges">
     </a>
-    <a class="p3-card p3-medium" href="https://www.google.com/search?q=events+in+Sitges" target="_blank" rel="noopener">
+    <a class="p3-card p3-medium" href="https://www.sitgesanytime.com/en/whats-on/agenda" target="_blank" rel="noopener">
       <img src="assets/p3-card-other.jpg" alt="Other events in Sitges">
     </a>
   </div>
@@ -996,15 +1021,34 @@ outline:none;
   <img src="assets/timeline-title.jpg" alt="When to go">
 </div>
 
+
 <div class="p3-timeline-row">
-  <a class="p3-timeline-card" href="https://www.google.com/search?q=Sitges+Carnival+Patchwork+Festival" target="_blank" rel="noopener"><img src="assets/timeline-1.jpg" alt="February to April events"></a>
-  <a class="p3-timeline-card" href="https://www.google.com/search?q=Corpus+Christi+Sitges+Sitges+Pride" target="_blank" rel="noopener"><img src="assets/timeline-2.jpg" alt="May to June events"></a>
-  <a class="p3-timeline-card" href="https://www.google.com/search?q=Festival+Jardins+Terramar+Sitges+Fiesta+Mayor" target="_blank" rel="noopener"><img src="assets/timeline-3.jpg" alt="July to August events"></a>
-  <a class="p3-timeline-card" href="https://www.google.com/search?q=Santa+Tecla+Sitges+Film+Festival" target="_blank" rel="noopener"><img src="assets/timeline-4.jpg" alt="September to October events"></a>
+  <div class="p3-timeline-card split-card">
+    <img src="assets/timeline-1.jpg" alt="February to April events">
+    <a class="timeline-hotspot left" href="https://www.sitgesanytime.com/en/explore/festivals-of-interest/pln355/sitges-carnival" target="_blank" rel="noopener" aria-label="Sitges Carnival"></a>
+    <a class="timeline-hotspot right" href="https://www.sitgesanytime.com/en/calendar/pln330/international-patchwork-festival-sewing-sitges" target="_blank" rel="noopener" aria-label="Sitges Patchwork Festival"></a>
+  </div>
+
+  <div class="p3-timeline-card split-card">
+    <img src="assets/timeline-2.jpg" alt="May to June events">
+    <a class="timeline-hotspot left" href="https://www.sitgesanytime.com/en/explore/festivals-of-interest/pln355/corpus-christi-sitges" target="_blank" rel="noopener" aria-label="Corpus Christi Sitges"></a>
+    <a class="timeline-hotspot right" href="https://sitgespride.com/homepage/" target="_blank" rel="noopener" aria-label="Sitges Pride"></a>
+  </div>
+
+  <div class="p3-timeline-card split-card">
+    <img src="assets/timeline-3.jpg" alt="July to August events">
+    <a class="timeline-hotspot left" href="https://festivalterramarcaixabank.com/en/" target="_blank" rel="noopener" aria-label="Festival Jardins Terramar"></a>
+    <a class="timeline-hotspot right" href="https://www.sitgesfestamajor.cat/" target="_blank" rel="noopener" aria-label="Sitges Main Festival"></a>
+  </div>
+
+  <div class="p3-timeline-card split-card">
+    <img src="assets/timeline-4.jpg" alt="September to October events">
+    <a class="timeline-hotspot left" href="https://www.visitsitges.com/en/santa-tecla-3/" target="_blank" rel="noopener" aria-label="Santa Tecla Sitges"></a>
+    <a class="timeline-hotspot right" href="https://sitgesfilmfestival.com/en" target="_blank" rel="noopener" aria-label="Sitges International Fantastic Film Festival"></a>
+  </div>
 </div>
 
-
-  <div class="p3-link-row" aria-label="Event links">
+<div class="p3-link-row" aria-label="Event links">
     <a href="https://www.visitsitges.com/event-calendar/" target="_blank" rel="noopener">
       <img src="assets/p3-link-calendar.jpg" alt="Event Calendar">
     </a>
